@@ -2,18 +2,15 @@ name: TruffleHog Scan
 
 on:
   push:
-    branches:
-      - "main"
+    branches: ["main"]
 
 jobs:
   secret-scan:
-    runs-on: self-hosted  # or 'ubuntu-latest' for GitHub-hosted runners
+    runs-on: self-hosted  
 
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # To ensure the full history is fetched, needed for scanning
 
       - name: Run TruffleHog Scan on the Current Repository
         run: |
